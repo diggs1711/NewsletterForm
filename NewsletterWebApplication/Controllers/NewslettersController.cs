@@ -22,23 +22,23 @@ namespace NewsletterWebApplication.Controllers
 
         // POST: Newsletters/Create
         [HttpPost]
-        public bool Create(Newsletter newsletter)
+        public string Create(Newsletter newsletter)
         {
             if (ModelState.IsValid)
             {
                 if (db.Newsletters.Any(x => x.Email.Equals(newsletter.Email)))
                 {
-                    return false;
+                    return "Email already in use, please use another";
                 }
                 else
                 {
                     db.Newsletters.Add(newsletter);
                     db.SaveChanges();
-                    return true;
+                    return "Form Successful";
                 }
             }
 
-            return false;
+            return "Invalid Form";
         }
 
 

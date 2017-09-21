@@ -85,26 +85,36 @@ __webpack_require__(2);
 
         $scope.addNewsletter = function () {
 
-            $.ajax({
-                method: "POST",
-                url: 'Newsletters/Create',
-                data: {
-                    Email: $scope.emailAddress,
-                    HearAboutUs: $scope.hearAboutUs,
-                    Reason: $scope.reason
-                },
-                success: function (data) {
-                    $scope.formSuccessful(data);
-                },
-                error: function () {
+            if ($scope.hasFormBeenCompleted()) {
+                $.ajax({
+                    method: "POST",
+                    url: 'Newsletters/Create',
+                    data: {
+                        Email: $scope.emailAddress,
+                        HearAboutUs: $scope.hearAboutUs,
+                        Reason: $scope.reason
+                    },
+                    success: function (result) {
+                        $scope.formSuccessful(result);
+                    },
+                    error: function () {
 
-                }
-            });
-
+                    }
+                });
+            } else {
+                alert("Form not complete, please fill in all fields");
+            }
+           
         };
 
+        $scope.hasFormBeenCompleted = function () {
+            return $scope.emailAddress != "" && $scope.hearAboutUs != "" && $scope.reason != "";
+        }
+
         $scope.formSuccessful = function (result) {
-            console.log("Form Created!", result)
+            alert(result);
+            $scope.init();
+            $scope.$applyAsync();
         }
 
         $scope.init = function () {
