@@ -1,0 +1,11 @@
+﻿textarea {
+    resize: none;
+}
+
+.form-container {
+    margin-top: 2em;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
