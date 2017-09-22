@@ -43,8 +43,14 @@
         };
 
         $scope.emailInUse = function (result) {
+            $scope.clearEmailField();
+
             alert(result);
         };
+
+        $scope.clearEmailField = function () {
+            $scope.emailAddress = "";
+        }
 
         $scope.init = function () {
             $scope.emailAddress = "";
@@ -62,5 +68,4 @@
 
     angular.module('NewsletterFormApp').controller('formController', ['$scope', "$http", formController]);
     module.exports = formController;
-
 })();

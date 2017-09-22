@@ -123,9 +123,14 @@ __webpack_require__(2);
         };
 
         $scope.emailInUse = function (result) {
+            $scope.clearEmailField();
 
             alert(result);
         };
+
+        $scope.clearEmailField = function () {
+            $scope.emailAddress = "";
+        }
 
         $scope.init = function () {
             $scope.emailAddress = "";
@@ -143,7 +148,6 @@ __webpack_require__(2);
 
     angular.module('NewsletterFormApp').controller('formController', ['$scope', "$http", formController]);
     module.exports = formController;
-
 })();
 
 

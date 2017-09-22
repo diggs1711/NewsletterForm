@@ -32,7 +32,7 @@ namespace NewsletterWebApplication.Controllers
                 {
                     db.Newsletters.Add(newsletter);
                     db.SaveChanges();
-                    return "Form Successful";
+                    return "Congratulations, you have signed up to the newsletter!";
                 }
             }
 
