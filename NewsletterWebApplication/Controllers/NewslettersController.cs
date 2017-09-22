@@ -14,13 +14,11 @@ namespace NewsletterWebApplication.Controllers
     {
         private NewsletterDBContext db = new NewsletterDBContext();
 
-        // GET: Newsletters
         public ActionResult Index()
         {
             return View();
         }
 
-        // POST: Newsletters/Create
         [HttpPost]
         public string Create(Newsletter newsletter)
         {
